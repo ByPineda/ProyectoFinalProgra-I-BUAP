@@ -21,6 +21,6 @@ el total de la reparación.
 
 Una vez que se termine con la selección de los mantenimientos y/o
 repataciones, el programa deberá preguntar si se procede con el trabajo o no.
-En caso de NO, solo mostrar en pantalla e resumen y salir. En caso de que SI, el 
+En caso de "NO", solo mostrar en pantalla e resumen y salir. En caso de que "SI", el 
 programa deberá de mostrar una fecha de entreha, así como el resumen del trabajo con sus costos,
 esto último será guardado en un archivo de texto.
