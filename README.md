@@ -9,14 +9,14 @@ git clone https://github.com/LamostAce/BUAP-2DO.git
 ```
 --
 ** INSTRUCCIONES DEL PROYECTO **
---
+
 
 
 El programa deberá pedir los datos del cliente, su dirección y los datos de su auto, 
 una vez registrados los datos anteriores, el programa deberá de mostrar una pantalla con los
 distintos mantenimientos y reparaciones que el taller puede realizar.
 
-AL seleccionar uno o más de ellos el sistema deberá mostrar los recios unitarios y
+Al seleccionar uno o más de ellos el sistema deberá mostrar los recios unitarios y
 el total de la reparación.
 
 Una vez que se termine con la selección de los mantenimientos y/o
