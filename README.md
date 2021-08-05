@@ -7,7 +7,7 @@ Para poder hacer esto tienes que usar estos comandos en la terminal:
 git clone https://github.com/LamostAce/BUAP-2DO.git
 
 ```
---
+
 ** INSTRUCCIONES DEL PROYECTO **
 
 
