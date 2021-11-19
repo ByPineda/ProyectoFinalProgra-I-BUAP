@@ -97,7 +97,7 @@ int listado(SERVICIOS *resumen) {
 		printf("11.-Revision,limpieza y ajuste de frenos                $1,000.0 MXN\n");
         printf("--------------------------------------------------------------------\n");
         printf("                                              Subtotal: $%.1f\n",subtotal);
-		printf("12 para salir.\n");
+		printf("12 para finalizar.\n");
         printf("Seleccione: "); scanf("%d",&OPCION);
         fflush(stdin);
         switch (OPCION)
@@ -150,6 +150,7 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     setlocale(LC_ALL, "es_ES");
     
+    int OPC2;
     DATOS cliente;
     DATOS *puntero = &cliente;
     SERVICIOS resumen;
@@ -178,10 +179,23 @@ int main(){
         /*PENDIENTE DE HACER:
             -IMRPIMR UN MENU QUE DIGA SI EL USUARIO QUIERE SEGUIR O NO.
             -HACER EL RESUMEN EN TXT E IMPRESO EN LA CONSOLA. */
+        printf("¿Desea continuar con la cita?\n1.Si\n2.No");
+        scanf("%d",&OPC2);
+        switch (OPC2)
+        {
+        case 1:
+            /* code */
+            break;
+        
+        default:
+            system("cls");
+            printf("¡Vuelva pronto!\nMexicanicos te espera.")
+            break;
+        }
         break;
     case 2:
         system("cls");
-        printf("¡Vuelva pronto!");
+        printf("¡Vuelva pronto!\nMexicanicos te espera.");
         break;
     default:
         break;
