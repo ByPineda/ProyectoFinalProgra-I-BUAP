@@ -32,7 +32,6 @@ typedef struct servicios
     bool rotacion;
     bool frenos;
     float subtotal;
-
 }SERVICIOS;
 
 
@@ -67,7 +66,7 @@ int listado(SERVICIOS *resumen ) {
     while (flag)
     {
         system("cls");
-        printf("	        Seleccione un servicio a realizar:\n");
+        printf("	        Seleccione un servicio a realizar.:\n");
         printf("--------------------------------------------------------------------\n");
         printf("        SERVICIO                                          IMPORTE\n");
         printf("--------------------------------------------------------------------\n");
@@ -87,7 +86,6 @@ int listado(SERVICIOS *resumen ) {
 		printf("12 para finalizar.\n");
         printf("Seleccione: "); scanf("%d",&OPCION);
         fflush(stdin);
-        //IMPRESIÓN DEL RESUMEN A SU ESTRUCTURA
         switch (OPCION)
         {
         case 1:
@@ -212,21 +210,29 @@ int resumenfinal(SERVICIOS *resumen, FILE *fp, DATOS *cliente) {
     printf("*********************************************************************\n");
     printf("\n¡Gracias por su preferencia!");
 
+
     //SOLO IMPRIME A CONSOLA
     fprintf(fp,"*********************************************************************\n");
     fprintf(fp,"SUBTOTAL: $%.1f MXN\n",resumen->subtotal);
     fprintf(fp,"\n¡Gracias por su preferencia!");
- 
+
+
+
+    
 }
 
 int main(){
     SetConsoleOutputCP(CP_UTF8);
     setlocale(LC_ALL, "es_ES");
-    //INICIALIZACIÓN DE PUNTERO DE FICHERO
+    
     FILE *fp;
-    int OPC,OPC2;
-    DATOS cliente, *puntero = &cliente;
-    SERVICIOS resumen, *respuntero = &resumen;
+    fp = fopen("Resumen.txt","w");
+    int OPC;
+    int OPC2;
+    DATOS cliente;
+    DATOS *puntero = &cliente;
+    SERVICIOS resumen;
+    SERVICIOS *respuntero = &resumen;
     resumen.aceite = false;
     resumen.acumulador = false;
     resumen.suspension = false;
@@ -238,62 +244,36 @@ int main(){
     resumen.engrasado = false;
     resumen.rotacion = false;
     resumen.frenos = false;
-    while (OPC != 3)
-    {
     printf("Bienvenido al Mexicanico\n");
     printf("************************\n");
-    printf("¿Desea realizar alguna cita o consulta?\n  1.Realizar Cita\n  2.Realizar Consulta\n  3.No\n");
+    printf("¿Desea realizar alguna cita o consulta?\n  1.Si\n  2.No\n");
     scanf("%d",&OPC);
     switch (OPC)
     {
     case 1:
         cliente = getInfo(puntero);
         listado(respuntero);
-        printf("¿Desea continuar con la cita?\n1.Si\n2.No\nSeleccione:");
+        printf("¿Desea continuar con la cita?\n1.Si\n2.No");
         scanf("%d",&OPC2);
         switch (OPC2)
         {
         case 1:
-            fp = fopen("Resumen.txt","w");
-            resumenfinal(respuntero,fp,puntero);OPC=3;
-            fclose(fp);break;
+            resumenfinal(respuntero,fp,puntero);
+            break;
         
         default:
             system("cls");
-            printf("¡Vuelva pronto!\nMexicanicos te espera.");OPC=3;break;
-        }break;
-    case 2:
-        if ((fp = fopen("Resumen.txt","r")) == NULL)
-        {
-            system("cls");
-            printf("No existe ninguna cita agendada.\n\n");
+            printf("¡Vuelva pronto!\nMexicanicos te espera.");
+            break;
         }
-        else {
-            //LECTURA E IMPRESIÓN DEL FICHERO TXT
-            system("cls");
-            fp = fopen("Resumen.txt","r");
-            char ch;
-            //LA FUNCIÓN fgetc() LEE CADA CHAR DENTRO DEL FICHERO Y AVANZA UNA POSICIÓN DENTRO DE ESTE.
-            //EL WHILE HACE QUE SE HAGA HASTA QUE EL PROGRAMA ENCUENTRE UN FIN DE LINEA.
-            do
-            {
-                ch = fgetc(fp);
-                putchar(ch);
-                
-            } while (ch != EOF);
-            fclose(fp); OPC = 3;
- 
-        }break;
-
-    case 3:
+        break;
+    case 2:
         system("cls");
-        printf("¡Vuelva pronto!\nMexicanicos te espera.");break;
+        printf("¡Vuelva pronto!\nMexicanicos te espera.");
+        break;
     default:
         break;
     }
-
-    }
-    
 
 }
 
